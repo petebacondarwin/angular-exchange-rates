@@ -1,8 +1,15 @@
+// Jasmine specifications describe things to be tested (BDD)
 describe('AppController', function() {
   var controller, $scope;
+
+  // Load the app module
   beforeEach(module('app'));
+
+  // inject the root scope and $controller service
   beforeEach(inject(function($rootScope, $controller) {
+    // Make a copy of the scope for use later
     $scope = $rootScope;
+    // Create a new instance of the controller injecting the given scope
     controller = $controller('AppController', {$scope: $scope});
   }));
 

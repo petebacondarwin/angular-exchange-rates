@@ -1,7 +1,10 @@
 describe('AppController', function() {
   var controller, $scope;
   beforeEach(module('app'));
+  // Configure angular's built in mock $http service
   beforeEach(inject(function($httpBackend, $rootScope, $controller) {
+
+    // Specify that we expect a GET request to two URLs and provide dummy response data
     $httpBackend
       .expectGET('http://openexchangerates.org/api/currencies.json?app_id=3f87c49674ef43568cbd86476e86f88f')
       .respond([{ GBP : 'British Pound Sterling'}, { EUR: 'Euros' }]);
@@ -12,6 +15,8 @@ describe('AppController', function() {
 
     $scope = $rootScope;
     controller = $controller('AppController', {$scope: $scope});
+
+    // Flush the $http service, simulates the responses returning
     $httpBackend.flush();
   }));
 
@@ -34,4 +39,9 @@ describe('AppController', function() {
     // Test the calcCurrency method
     expect($scope.calcCurrency()).toEqual(64);
   });
+
+  afterEach(inject(function($httpBackend) {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  }));
 });
