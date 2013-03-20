@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Angular Demo 2</title>
+  <script src="http://code.angularjs.org/1.1.3/angular.js"></script>
+</head>
+<body ng-app>
+
+  <input ng-model="firstName">
+  <input ng-model="lastName">
+  <button ng-click="hideMe = !hideMe">Toggle Greeting</button>
+
+  <div ng-hide="hideMe">Hello, {{firstName}} {{lastName}}</div>
+
+</body>
+</html>

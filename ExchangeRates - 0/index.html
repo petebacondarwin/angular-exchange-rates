@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exchange Rates</title>
+  <script src="http:/code.angularjs.org/1.1.3/angular.js"></script>
+</head>
+<body ng-app>
+  British Pound Sterling: <input ng-model="fromVal"><br/>
+  Euro: <span ng-bind="fromVal / 0.661062 * 0.774538 | number : 2"></span>
+</body>
+</html>

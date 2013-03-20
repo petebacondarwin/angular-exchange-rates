@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exchange Rates</title>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+  <!--               AngularJS Library                          -->
+  <script src="http:/code.angularjs.org/1.1.3/angular.js"></script>
+
+  <!--               Application Code                           -->
+  <script src="app.js"></script>
+
+</head>
+      <!-- App -->                   <!--      Controller      -->
+<body ng-app="app" class="container" ng-controller="AppController">
+
+  <form class="form-inline">
+    <legend>Currency Exchange Rate Converter</legend>
+
+    <div class="row">
+      <label class="span1">From</label>
+      <select ng-options="value as getCurrencyLabel(code, value) for (code, value) in currencyValues" ng-model="fromCurrency" class="span3">
+        <option value="">-- Please Select a Currency --</option>
+      </select>
+      <input ng-model="fromVal" class="span2">
+    </div>
+
+    <div class="row">
+      <label class="span1">To</label>
+      <select ng-options="value as getCurrencyLabel(code, value) for (code, value) in currencyValues" ng-model="toCurrency" class="span3">
+        <option value="">-- Please Select a Currency --</option>
+      </select>
+      <input value="{{ calcCurrency() || 0 | number : 2 }}" readonly class="span2">
+    </div>  
+
+  </form>
+
+</body>
+</html>
