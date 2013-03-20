@@ -1,3 +1,4 @@
+// Test the getRateInfo service separately from the controller
 describe('getRateInfo', function() {
   var $httpBackend;
 
@@ -21,12 +22,13 @@ describe('getRateInfo', function() {
   }));
 });
 
-
+// Only test the controller in isolation, (i.e. mock out the getRateInfo service)
 describe('AppController', function() {
   var controller, $scope;
   
   // Create a test module with a mock getRateInfo function 
   angular.module('test', ['app']).factory('getRateInfo', function() {
+    // Use jasmine's spies to track whether this service gets called
     return jasmine.createSpy('getRateInfo');
   });
 
@@ -37,6 +39,7 @@ describe('AppController', function() {
   }));
 
   it("should set up currencies", inject(function(getRateInfo) {
+    // Check that the service got called twice
     expect(getRateInfo).toHaveBeenCalled();
     expect(getRateInfo.calls.length).toEqual(2);
 
