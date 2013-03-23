@@ -22,6 +22,9 @@ angular.module('app', ['open-exchange-rates', 'ui.bootstrap.typeahead', 'decimal
       var namesPromise = getRateInfo('currencies');
       var ratesPromise = getRateInfo('latest');
 
+      $scope.from = {};
+      $scope.to = {};
+
       // Use the $q.all method to run code only when both promises have been resolved
       $q.all([namesPromise, ratesPromise]).then(function(responses) {
 
@@ -39,15 +42,9 @@ angular.module('app', ['open-exchange-rates', 'ui.bootstrap.typeahead', 'decimal
           });
         });
 
-        // Initialize the model
-        $scope.from = {
-          currency: $scope.currencies[pickRandom($scope.currencies.length-1)],
-          value: 1
-        };
-        $scope.to = {
-          currency: $scope.currencies[pickRandom($scope.currencies.length-1)],
-          value: null
-        };
+        // Pick some random currencies
+        $scope.from.currency = $scope.currencies[pickRandom($scope.currencies.length-1)];
+        $scope.to.currency = $scope.currencies[pickRandom($scope.currencies.length-1)];
       });
 
       $scope.updateValue = function(from, to) {
