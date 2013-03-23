@@ -19,13 +19,13 @@
       <label class="control-label">From</label>
       <div class="controls">
         <input
-          ng-model="fromVal"
-          ng-change="updateToVal()"
+          ng-model="from.value"
+          ng-change="updateValue(from, to)"
           decimal-places="2"
           class="input-small">
         <input
           typeahead="currency as currency.label for currency in currencies | filter : $viewValue"
-          ng-model="fromCurrency"
+          ng-model="from.currency"
           placeholder="Please Enter a Currency..."
           class="input-xlarge">
       </div>
@@ -35,13 +35,13 @@
       <label class="control-label">To</label>
       <div class="controls">
         <input
-          ng-model="toVal"
-          ng-change="updateFromVal()"
+          ng-model="to.value"
+          ng-change="updateValue(to, from)"
           decimal-places="2"
           class="input-small">
         <input
           typeahead="currency as currency.label for currency in currencies | filter : $viewValue"
-          ng-model="toCurrency"
+          ng-model="to.currency"
           placeholder="Please Enter a Currency..."
           class="input-xlarge">
       </div>

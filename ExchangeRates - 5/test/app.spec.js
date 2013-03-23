@@ -28,33 +28,31 @@ describe('AppController', function() {
 
   it("should calculate the currency values correctly", function() {
     // Mock up the currencies
-    $scope.fromCurrency = { rate: 0.5 };
-    $scope.toCurrency = { rate: 0.8 };
+    $scope.from = { currency: { rate: 0.5 }, value: 40 };
+    $scope.to =   { currency: { rate: 0.8 } };
 
-    $scope.fromVal = 40;
-    $scope.updateToVal();
-    expect($scope.toVal).toEqual(64);
+    $scope.updateValue($scope.from, $scope.to);
+    expect($scope.to.value).toEqual(64);
 
-    $scope.toVal = 40;
-    $scope.updateFromVal();
-    expect($scope.fromVal).toEqual(25);
+    $scope.to.value = 40;
+    $scope.updateValue($scope.to, $scope.from);
+    expect($scope.from.value).toEqual(25);
   });
 
-  it('should update toVal when to or from currency changes', function() {
-  // Mock up the currencies
-    $scope.fromCurrency = { rate: 0.5 };
-    $scope.toCurrency = { rate: 0.8 };
-    $scope.fromVal = 40;
+  it('should update to value when to or from currency changes', function() {
+    // Mock up the currencies
+    $scope.from = { currency: { rate: 0.5 }, value: 40 };
+    $scope.to = { currency: { rate: 0.8 } };
 
     $scope.$digest();
-    expect($scope.toVal).toEqual(64);
+    expect($scope.to.value).toEqual(64);
 
-    $scope.fromCurrency = { rate: 0.2 };
+    $scope.from.currency = { rate: 0.2 };
     $scope.$digest();
-    expect($scope.toVal).toEqual(160);
+    expect($scope.to.value).toEqual(160);
 
-    $scope.toCurrency = { rate: 0.5 };
+    $scope.to.currency = { rate: 0.5 };
     $scope.$digest();
-    expect($scope.toVal).toEqual(100);
+    expect($scope.to.value).toEqual(100);
   });
 });

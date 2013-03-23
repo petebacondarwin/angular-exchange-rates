@@ -15,7 +15,7 @@
     <div class="row">
       <label class="span1">From</label>
                         <!-- use helper function defined in controller -->
-      <select ng-options="value as getCurrencyLabel(code, value) for (code, value) in currencyValues" ng-model="fromCurrency" class="span3">
+      <select ng-options="getCurrencyLabel(code, value) for (code, value) in currencyValues" ng-model="fromCurrency" class="span3">
         <option value="">-- Please Select a Currency --</option>
       </select>
       <input ng-model="fromVal" class="span2">
@@ -23,7 +23,7 @@
 
     <div class="row">
       <label class="span1">To</label>
-      <select ng-options="value as getCurrencyLabel(code, value) for (code, value) in currencyValues" ng-model="toCurrency" class="span3">
+      <select ng-options="getCurrencyLabel(code, value) for (code, value) in currencyValues" ng-model="toCurrency" class="span3">
         <option value="">-- Please Select a Currency --</option>
       </select>
       <input value="{{ calcCurrency() || 0 | number : 2 }}" readonly class="span2">

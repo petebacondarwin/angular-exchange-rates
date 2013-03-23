@@ -10,6 +10,14 @@ angular.module('app', ['open-exchange-rates', 'ui.bootstrap.typeahead', 'decimal
   '$scope',  'getRateInfo', 'numberFilter', '$q',
     function($scope, getRateInfo, numberFilter, $q) {
 
+      function pickRandom(max) {
+        return Math.floor((Math.random()*max));
+      }
+
+      function getRate(currency) {
+        return currency && currency.rate;
+      }
+
       // Grab the promises from the two calls  
       var namesPromise = getRateInfo('currencies');
       var ratesPromise = getRateInfo('latest');
@@ -32,23 +40,21 @@ angular.module('app', ['open-exchange-rates', 'ui.bootstrap.typeahead', 'decimal
         });
 
         // Initialize the model
-        $scope.fromCurrency = $scope.currencies[Math.floor((Math.random()*$scope.currencies.length-1))];
-        $scope.toCurrency = $scope.currencies[Math.floor((Math.random()*$scope.currencies.length-1))];
-        $scope.fromVal = 1;
+        $scope.from = {
+          currency: $scope.currencies[pickRandom($scope.currencies.length-1)],
+          value: 1
+        };
+        $scope.to = {
+          currency: $scope.currencies[pickRandom($scope.currencies.length-1)],
+          value: null
+        };
       });
 
-      function getRate(currency) {
-        return currency && currency.rate;
-      }
-
-      $scope.updateToVal = function() {
-        $scope.toVal = $scope.fromVal / getRate($scope.fromCurrency) * getRate($scope.toCurrency);
+      $scope.updateValue = function(from, to) {
+        to.value = from.value / getRate(from.currency) * getRate(to.currency);
       };
 
-      $scope.updateFromVal = function() {
-        $scope.fromVal = $scope.toVal / getRate($scope.toCurrency) * getRate($scope.fromCurrency);
-      };
-
-      $scope.$watch('fromCurrency', $scope.updateToVal);
-      $scope.$watch('toCurrency', $scope.updateToVal);
+      // Update values if currencies change
+      $scope.$watch('from.currency', function() { $scope.updateValue($scope.from, $scope.to); });
+      $scope.$watch('to.currency', function() { $scope.updateValue($scope.from, $scope.to); });
 }]);

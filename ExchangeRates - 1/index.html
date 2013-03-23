@@ -12,21 +12,26 @@
     <legend>Currency Exchange Rate Converter</legend>
     <div class="row">
       <label class="span1">From</label>
+      
       <!-- select & ng-model directives                            -->
       <select id="fromCurrency" ng-model="fromCurrency" class="span3">
         <option value="0.661062">British Pound Sterling</option>
         <option value="0.774538">Euro</option>
       </select>
+      
       <!-- input & ng-model directives     -->
       <input ng-model="fromVal" class="span2">
+    
     </div>
     <div class="row">
       <label class="span1">To</label>
+    
       <!-- select & ng-model directives                        -->
       <select id="toCurrency" ng-model="toCurrency" class="span3">
         <option value="0.661062">British Pound Sterling</option>
         <option value="0.774538">Euro</option>
       </select>
+    
              <!--           one way attribute binding                  -->
       <input value="{{ fromVal / fromCurrency * toCurrency | number : 2}}" readonly class="span2">
     </div>  
