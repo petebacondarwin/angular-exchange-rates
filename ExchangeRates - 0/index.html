@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Angular Exchange Rates Demo - 0</title>
-  <!--               AngularJS Library                          -->
-  <script src="http:/code.angularjs.org/1.1.3/angular.js"></script>
+  <script src="../lib/angular/angular.js"></script>
 </head>
-<!-- App -->
 <body ng-app>
-                          <!-- ng-model two way binding -->
-  British Pound Sterling: <input ng-model="fromVal"><br/>
-        <!--    one way binding to angular expression with filter      -->                 
-  Euro: <span ng-bind="fromVal * 1.953 | number : 2"></span>
+  Pounds: <input ng-model="from">
+  Euros: <span ng-bind="from * 1.953 | number : 2"></span>
 </body>
 </html>
