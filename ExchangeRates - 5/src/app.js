@@ -1,5 +1,5 @@
 // Our app module now has some dependencies
-angular.module('app', ['open-exchange-rates', 'ui.bootstrap.typeahead', 'decimal-places'])
+angular.module('app', ['ngSanitize', 'open-exchange-rates', 'ui.bootstrap', 'decimal-places'])
 
 // Configure the getRateInfo service with an api key
 .config(['getRateInfoProvider', function(getRateInfoProvider) {
