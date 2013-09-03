@@ -12,8 +12,14 @@ Hard coded simplest example
 
 
 ```
-Pounds: <input ng-model="from">
-Euros: <span ng-bind="from * 1.953 | number : 2"></span>
+<body ng-app>
+
+  Pounds: <input ng-model="from">
+  Euros: <span ng-bind="from * 1.953 | number : 2"></span>
+
+  <script src="../lib/angular/angular.js"></script>
+
+</body>
 ```  
 
 ## ExchangeRates – 1
