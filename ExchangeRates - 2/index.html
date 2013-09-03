@@ -10,28 +10,34 @@
   <script src="app.js"></script>
 
 </head>
-                                     <!--      Controller      -->
-<body ng-app="app" class="container" ng-controller="AppController">
 
-  <form class="form-inline">
+<body ng-app="app">                   <!--      Controller      -->
+  <form class="form-inline container" ng-controller="AppController">
     <legend>Currency Exchange Rate Converter</legend>
 
     <div class="row">
       <label class="span1">From</label>
 
               <!-- ng-options for getting options from the model -->
-      <select ng-options="currency.name for currency in currencies" ng-model="fromCurrency" class="span3"></select>
-      <input ng-model="fromVal" class="span2">
+      <select ng-options="currency.name for currency in currencies"
+              ng-model="fromCurrency"
+              class="span3"></select>
+
+      <input  ng-model="fromVal"
+              class="span2">
     </div>
 
     <div class="row">
       <label class="span1">To</label>
 
               <!-- ng-options for getting options from the model -->
-      <select ng-options="currency.name for currency in currencies" ng-model="toCurrency" class="span3"></select>
+      <select ng-options="currency.name for currency in currencies"
+              ng-model="toCurrency"
+              class="span3"></select>
 
             <!-- binding to a method in the controller  -->
-      <input value="{{ calcCurrency() || 0 | number : 2 }}" readonly class="span2">
+      <input value="{{ calcCurrency() || 0 | number : 2 }}"
+             readonly class="span2">
     </div>  
 
   </form>
