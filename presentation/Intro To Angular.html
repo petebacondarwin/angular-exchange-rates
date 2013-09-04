@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Angular Presentation</title>
+  <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="bower_components/reveal.js/css/theme/simple.css">
+
+  <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css"> <!-- For syntax highlighting -->
+  <style type="text/css">
+    .reveal section img {
+      border: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body class="reveal">
+
+<div class="slides">
+  <section>
+    <h1>Angularjs</h1>
+    <h2>Extend your browser</h2>
+    <div>
+      <img src="images/logo.png" style="width: 325px; height: 325px; max-height: none; max-width: none;">
+      <br>
+    </div>
+    <div>Pete Bacon Darwin</div>
+  </section>
+  <section>
+    <h2>Peter Bacon Darwin</h2>
+    <div>
+      <ul>
+        <li>Computer Programmer / Dad
+          <ul>
+            <li>Freelance Developer</li>
+            <li>Formerly .NET Specialist</li>
+            <li>Now into Open Source</li>
+            <li>Look after my kids, Lily and Zachary</li>
+          </ul>
+        </li>
+        <li>AngularJS
+          <ul>
+            <li>Google AngularJS team</li>
+            <li>Founding Member of Angular-UI</li>
+            <li>Published Author</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section>
+    <h2>In The Beginning…</h2>
+    <div>
+      <ul>
+        <li>1989 Web Browsers</li>
+        <li>1995 JavaScript</li>
+        <li>2005 AJAX</li>
+        <li>2006 jQuery</li>
+      </ul>
+    </div>
+    <img src="images/Mosaic.png" class="absolute-element" style="position: absolute; width: 237px; height: 253px; z-index: 5; left: 581px; top: 171px; max-height: none; max-width: none;">
+    <img src="images/JQuery.png" class="absolute-element" style="position: absolute; max-height: none; max-width: none; width: 378px; height: 139px; z-index: 4; left: 430px; top: 433px;">
+    <img src="images/Browsers.png" class="absolute-element" style="position: absolute; max-height: none; max-width: none; width: 330px; height: 240px; z-index: 4; left: 68px; top: 259px;">
+  </section>
+  <section>
+    <h2>In the Future…</h2>
+    <div>Web Browser == Application Platform<br>
+      <br>
+      <br>
+    </div>
+    <img src="images/GMail.png" style="width: 270px; height: 117px; max-height: none; max-width: none; position: absolute; z-index: 8; left: 561px; top: 144px;" class="absolute-element">
+    <img src="images/Facebook.jpg" style="width: 353px; height: 176px; max-height: none; max-width: none; position: absolute; z-index: 7; left: 131px; top: 375px;" class="absolute-element">
+    <img src="images/Evernote.png" class="absolute-element" style="position: absolute; max-height: none; max-width: none; width: 212px; height: 84px; z-index: 4; left: 216px; top: 172px;">
+    <img src="images/Cloud9.png" class="absolute-element" style="position: absolute; max-height: none; max-width: none; width: 351px; height: 149px; z-index: 9; left: 526px; top: 364px;">
+    <img src="images/umbraco_logo.jpg" class="absolute-element" style="position: absolute; max-height: none; max-width: none; width: 499px; height: 148px; z-index: 6; left: 270px; top: 244px;">
+  </section>
+  <section>
+    <h2>Single Page Applications (SPA)</h2>
+    <p>Writing SPAs in JavaScript is...<em>messy</em></p>
+    <img src="images/spaghetti.jpg" style="width: 636px; height: 476px; max-height: none; max-width: none;">
+  </section>
+  <section>
+    <h2>The Real Problem - Browsers</h2>
+    <ul>
+      <li>Designed To:
+        <ul>
+          <li>Display Static Documents</li>
+          <li>Navigate Hyperlinks</li>
+          <li>Be Stateless</li>
+        </ul>
+      </li>
+      <li>We Need:
+        <ul>
+          <li>Model Driven Views</li>
+          <li>More Powerful Widgets</li>
+          <li>State Management</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>Getting There...</h2>
+    <img src="images/HTML5.png" style="width: 355px; height: 221px; max-height: none; max-width: none;">
+    <br>
+    <ul>
+      <li>Object.Observe()</li>
+      <li>Web Components</li>
+      <li>History.pushState()</li>
+    </ul>
+  </section>
+  <section>
+    <section>
+      <img src="images/AngularJS.png" style="width: 609px; height: 217px; max-height: none; max-width: none;">
+      <br>
+      <br>
+      … what HTML would have been, had it been designed for applications.
+      <br>
+      <em>… a Polyfill until Browsers catch up!</em>
+    </section>
+    <section>
+      <h2>Separation Of Concerns</h2>
+      <img src="images/MVC.jpg">
+      <ul>
+        <li>Model-View-Whatever</li>
+        <li>No DOM Manipulation in Business Logic</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Unobtrusive Data Binding</h2>
+      <ul>
+        <li>Just <b>POJOs</b> attached to the <b>$scope</b></li>
+        <li>Automatic Data Binding Updates (Dirty Checking)</li>
+      </ul>
+    </section>
+    <section>
+      <h2>HTML (DOM) Templates</h2>
+      <ul>
+        <li>Design and Layout in HTML and CSS</li>
+        <li>Use tools you know (<b>Visual Studio</b>, <b>WebStorm</b>)</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Reusable Components</h2>
+      <ul>
+        <li>Extend the HTML syntax (<b>directives</b>)
+          <ul>
+            <li><b>&lt;elements&gt;</b></li>
+            <li><b>attributes="..."</b></li>
+            <li><b>class="classes"</b></li>
+            <li><b>&lt!-- comments --&gt;</b></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Dependency Injection</h2>
+      <ul>
+        <li>More Maintainable Code</li>
+        <li>Think <b>AutoFac </b>Framework</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Unit Testing</h2>
+      <ul>
+        <li>Built-in Testing Support
+          <ul>
+            <li>Write Tests in <b>Jasmine</b> (or <b>Mocha</b>)</li>
+          </ul>
+        </li>
+        <li>Run Tests in Multiple Browsers
+          <ul>
+            <li>Unit Tests: <b>Karma Test Runner</b></li>
+            <li>End 2 End Tests: <b>Protractor</b></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Useful Services</h2>
+      <ul>
+        <li>AJAX Requests: <b>$http</b></li>
+        <li>Promises: <b>$q</b></li>
+        <li>Cookies: <b>$cookieStore</b></li>
+        <li>Routing: <b>$route</b></li>
+      </ul>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>Exchange Rate Demo</h2>
+      <div>
+        <img src="images/ExchangeRate.jpg">
+        <br>
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates">http://github.com/petebacondarwin/angular-exchange-rates</a>
+      </div>
+    </section>
+    <section>
+      <h2>0 - Simplest Example</h2>
+      <p>
+        <a href="http://petebacondarwin.github.io/angular-exchange-rates/ExchangeRates%20-%200/">Online Demo</a> -
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates/tree/master/ExchangeRates%20-%200/">View Code</a>
+      </p>
+      <ul>
+        <li>Load <b>angular.js</b> script</li>
+        <li>Apply Directives<br>
+          (<b>ng-app</b>, <b>ng-model</b> and <b>ng-bind</b>)
+        </li>
+        <li>Use AngularJS <b>expressions</b> and <b>filters</b></li>
+      </ul>
+      <br>
+      <pre><code>
+      &lt;body ng-app&gt;
+
+        Pounds: &lt;input ng-model="from"&gt;
+        Euros: &lt;span ng-bind="from * 1.953 | number : 2"&gt;&lt;/span&gt;
+
+        &lt;script src="../lib/angular/angular.js"&gt;&lt;/script&gt;
+
+      &lt;/body&gt;
+      </code></pre>
+    </section>
+    <section>
+      <h2>1 - Choose Currency</h2>
+      <p>
+        <a href="http://petebacondarwin.github.io/angular-exchange-rates/ExchangeRates%20-%201/">Online Demo</a> -
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates/tree/master/ExchangeRates%20-%201/">View Code</a>
+      </p>
+      <ul>
+        <li>Use Built-in <b>select</b> Directive</li>
+      </ul>
+      <br>
+      <pre><code>
+      &lt;select id="fromCurrency" ng-model="fromCurrency" class="span3"&gt;
+        &lt;option value="0.661062"&gt;British Pound Sterling&lt;/option&gt;
+        &lt;option value="0.774538"&gt;Euro&lt;/option&gt;
+      &lt;/select&gt;
+      </code></pre>
+    </section>
+    <section>
+      <h2>2 - Add Controller and Tests</h2>
+      <p>
+        <a href="http://petebacondarwin.github.io/angular-exchange-rates/ExchangeRates%20-%202/">Online Demo</a> -
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates/tree/master/ExchangeRates%20-%202/">View Code</a>
+      </p>
+      <ul>
+        <li>Create <b>app.js</b> – contains application code</li>
+        <li>Specify a root app module - <b>ng-app=”app”</b></li>
+        <li>Wire up the code-behind - <b>ng-controller=”AppController”</b></li>
+        <li>Use <b>ng-options</b> directive</li>
+        <li>Unit test <b>calcCurrency()</b> independently from view</li>
+      </ul>
+      <br>
+      <pre><code>
+  angular.module('app', [])
+    .controller('AppController', function($scope) {
+
+      $scope.currencies = [
+        { name: 'Euro', value: 0.774538 }, ...
+      ];
+      $scope.fromCurrency = $scope.currencies[0];
+      $scope.toCurrency = $scope.currencies[1];
+
+      $scope.calcCurrency = function() { ... };
+  });
+      </code></pre>
+    </section>
+    <section>
+        <h2>3 - HTTP Requests</h2>
+        <p>
+        <a href="http://petebacondarwin.github.io/angular-exchange-rates/ExchangeRates%20-%203/">Online Demo</a> -
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates/tree/master/ExchangeRates%20-%203/">View Code</a>
+        </p>
+        <ul>
+          <li>Injecting Components and Using Promises<br>
+            (<b>$http</b>, <b>numberFilter</b> and <b>$q</b>)
+          </li>
+        </ul>
+        
+        <pre><code>
+  .controller('AppController', function($scope, $http, numberFilter) {
+  ...
+        </code></pre>
+        <pre><code>
+  $http.get(openExchangeRatesUrl).then(function(response) {
+    $scope.currencyNames = response.data;
+  });
+        </code></pre>
+        <pre><code>
+  $scope.getCurrencyLabel = function(code, value) {
+    return $scope.currencyNames[code] +
+           " (" + numberFilter(value, 2) + " / USD)";
+  };
+        </code></pre>
+    </section>
+    <section>
+      <h2>4 - Refactor into a Service</h2>
+      <p>
+        <a href="http://petebacondarwin.github.io/angular-exchange-rates/ExchangeRates%20-%204/">Online Demo</a> -
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates/tree/master/ExchangeRates%20-%204/">View Code</a>
+      </p>
+      <ul>
+        <li>Create <b>getRateInfo()</b> Service via <b>module.factory()</b></li>
+        <li>Wait for Multiple Promises (<b>$q.all()</b>)</li>
+      </ul>
+      <pre><code>
+  .factory('getRateInfo', [
+    // Injection annotation to cope with minified parameter names
+    'apiKey', 'openExchangeRatesUrl', '$http',
+      function(apiKey, openExchangeRatesUrl, $http) {
+        return function(type) {
+          return $http.get(...).then(function (response) {
+            return response.data;
+          });
+        };
+  }])
+      </code></pre>
+      <pre><code>
+  $q.all([namesPromise, ratesPromise]).then(function(responses) {
+    $scope.currencyNames = responses[0];
+    $scope.currencyValues = responses[1].rates;
+  });
+      </code></pre>
+    </section>
+    <section>
+      <h2>5 - Custom Directives</h2>
+      <p>
+        <a href="http://petebacondarwin.github.io/angular-exchange-rates/ExchangeRates%20-%205/">Online Demo</a> -
+        <a href="http://github.com/petebacondarwin/angular-exchange-rates/tree/master/ExchangeRates%20-%205/">View Code</a>
+      </p>
+      <ul>
+        <li>Use AngularUI Bootstrap – <b>typeahead</b> Directive</li>
+        <li>Create Custom <b>decimal-places</b> Directive</li>
+      </ul>
+      <pre><code>
+  &lt;input ng-model="from.currency" 
+    typeahead="currency as currency.label for currency in currencies
+                | filter : $viewValue"&gt;
+      </code></pre>
+      <pre><code>
+  &lt;input ng-model="to.value" decimal-places="2"&gt;
+      </code></pre>
+    </section>
+  </section>
+  <section>
+      <h2>Trending Up!</h2>
+      <img src="images/Trend-graph.png">
+  </section>
+  <section>
+    <h2>Find Out More</h2>
+    <ul>
+      <li>Website: <a target="_blank" href="http://angularjs.org">angularjs.org</a></li>
+      <li>Developer Guide: <a target="_blank" href="http://docs.angularjs.org/guide">docs.angularjs.org/guide</a></li>
+      <li>API Docs: <a target="_blank" href="http://docs.angularjs.org/api">docs.angularjs.org/api</a></li>
+      <li>Mailing List: <a target="_blank" href="https://groups.google.com/forum/#!forum/angular">angular@googlegroups.com</a></li>
+      <li>Stack Overflow: <a target="_blank" href="http://stackoverflow.com/questions/tagged/angularjs">http://stackoverflow.com/questions/tagged/angularjs</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Buy The Book!</h2>
+    <a href="http://www.packtpub.com/angularjs-web-application-development/book">
+      <img src="images/Book.jpg" style="width: 470.0162074554295px; height: 580px; max-height: none; max-width: none;">
+    </a><br>
+    <a href="http://www.packtpub.com/angularjs-web-application-development/book">www.packtpub.com</a>
+  </section>
+
+  <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+  <script src="bower_components/reveal.js/js/reveal.js"></script>
+  <script type="text/javascript">
+    Reveal.initialize({
+      history: true
+    });
+  </script>
+
+</body>
