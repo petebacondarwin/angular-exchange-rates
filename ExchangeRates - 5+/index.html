@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Exchange Rates Demo - 4</title>
+  <link href="../lib/bootstrap/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="src/app.css">
+  <script src="../lib/angular/angular.js"></script>
+  <script src="../lib/angular/angular-sanitize.js"></script>
+  <script src="src/angularui-bootstrap.js"></script>
+  <script src="src/app.js"></script>
+  <script src="src/decimal-places.js"></script>
+  <script src="src/open-exchange-rates.js"></script>
+</head>
+<body ng-app="app" class="container" ng-controller="AppController">
+
+  <form class="form">
+    <legend>Currency Exchange Rate Converter</legend>
+
+    <div class="control-group" ng-repeat="to in toCurrencies" ng-controller="CurrencyController">
+      <label class="control-label"><i ng-if="$index>0" ng-click="toCurrencies.splice($index, 1)" class="icon-minus-sign"></i> To</label>
+      <div class="controls">
+        <input
+          ng-model="to.value"
+          ng-change="updateValue(to, from)"
+          decimal-places="2"
+          class="input-small">
+        <input
+          typeahead="currency as currency.label for currency in currencies | filter : $viewValue"
+          ng-model="to.currency"
+          placeholder="Please Enter a Currency..."
+          class="input-xlarge">
+      </div>
+    </div>  
+    <button ng-click="addTo()"><i class="icon-plus-sign"></i> Add Currency</button>
+
+  </form>
+
+  <!-- include template for typeahead -->
+  <script type="text/ng-template" id="template/typeahead/typeahead.html">
+    <div class="dropdown clearfix" ng-class="{open: isOpen()}">
+      <ul class="typeahead dropdown-menu">
+        <li
+            ng-repeat="match in matches"
+            ng-class="{active: isActive($index) }"
+            ng-mouseenter="selectActive($index)">          
+          <a
+            tabindex="-1"
+            ng-click="selectMatch($index)"
+            ng-bind-html-unsafe="match.label | typeaheadHighlight:query">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </script>
+
+</body>
+</html>
