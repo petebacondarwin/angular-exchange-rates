@@ -14,6 +14,8 @@ angular.module('app', ['ngSanitize', 'open-exchange-rates', 'ui.bootstrap', 'dec
   return obj && obj.currency && obj.currency.rate;
 })
 
+// Some other change
+
 .factory('currencyPromise', ['getRateInfo', '$q', 'numberFilter', function(getRateInfo, $q, numberFilter) {
   return $q.all([getRateInfo('currencies'), getRateInfo('latest')]).then(function(responses) {
 
